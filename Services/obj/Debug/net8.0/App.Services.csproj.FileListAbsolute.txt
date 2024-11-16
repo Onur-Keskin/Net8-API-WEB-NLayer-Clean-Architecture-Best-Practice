@@ -13,3 +13,4 @@ D:\Ders Dokümanlarım\FatihCakirOgluUdemy\NetCoreApiWebNlayerCleanArchitectureB
 D:\Ders Dokümanlarım\FatihCakirOgluUdemy\NetCoreApiWebNlayerCleanArchitectureBestPractices\Services\obj\Debug\net8.0\refint\App.Services.dll
 D:\Ders Dokümanlarım\FatihCakirOgluUdemy\NetCoreApiWebNlayerCleanArchitectureBestPractices\Services\obj\Debug\net8.0\App.Services.pdb
 D:\Ders Dokümanlarım\FatihCakirOgluUdemy\NetCoreApiWebNlayerCleanArchitectureBestPractices\Services\obj\Debug\net8.0\ref\App.Services.dll
+D:\Ders Dokümanlarım\FatihCakirOgluUdemy\NetCoreApiWebNlayerCleanArchitectureBestPractices\Services\obj\Debug\net8.0\App.Services.sourcelink.json
