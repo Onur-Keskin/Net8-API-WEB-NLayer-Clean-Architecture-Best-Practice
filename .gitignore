@@ -9,3 +9,6 @@ obj/
 # Cache dosyaları
 *.dbtcache.v2
 *.futdcache.v2
+
+# DLL Dosyalarını Hariç Tut
+*.dll
