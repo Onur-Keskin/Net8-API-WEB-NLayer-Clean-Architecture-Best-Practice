@@ -12,3 +12,10 @@ obj/
 
 # DLL Dosyalarını Hariç Tut
 *.dll
+
+# Cache Dosyalarını Hariç Tut
+*.cache
+
+# PDB ve EXE Dosyalarını Hariç Tut
+*.pdb
+*.exe
