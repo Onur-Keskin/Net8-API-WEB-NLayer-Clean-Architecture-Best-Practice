@@ -1,0 +1,11 @@
+# Visual Studio dosyaları
+.vs/
+*.suo
+
+# Build dosyaları
+bin/
+obj/
+
+# Cache dosyaları
+*.dbtcache.v2
+*.futdcache.v2
