@@ -109,7 +109,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "App.Services.Products.Update.UpdateProductStockRequest",
+        "Type": "App.Services.Products.UpdateStock.UpdateProductStockRequest",
         "IsRequired": true
       }
     ],

@@ -1,0 +1,12 @@
+# Visual Studio cache dosyaları
+.vs/
+*.suo
+
+# Build dosyaları
+bin/
+obj/
+
+# Kullanıcı ayarları
+*.dbtcache.v2
+*.futdcache.v2
+*.json

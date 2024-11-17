@@ -142,3 +142,4 @@ D:\Ders Dokümanlarım\FatihCakirOgluUdemy\NetCoreApiWebNlayerCleanArchitectureB
 D:\Ders Dokümanlarım\FatihCakirOgluUdemy\NetCoreApiWebNlayerCleanArchitectureBestPractices\App.API\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 D:\Ders Dokümanlarım\FatihCakirOgluUdemy\NetCoreApiWebNlayerCleanArchitectureBestPractices\App.API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 D:\Ders Dokümanlarım\FatihCakirOgluUdemy\NetCoreApiWebNlayerCleanArchitectureBestPractices\App.API\bin\Debug\net8.0\AutoMapper.dll
+D:\Ders Dokümanlarım\FatihCakirOgluUdemy\NetCoreApiWebNlayerCleanArchitectureBestPractices\App.API\obj\Debug\net8.0\App.API.sourcelink.json
