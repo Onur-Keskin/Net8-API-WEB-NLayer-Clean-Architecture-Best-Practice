@@ -3,6 +3,7 @@ using App.Repositories.Products;
 using App.Services.ExceptionHandlers;
 using App.Services.Products.Create;
 using App.Services.Products.Update;
+using App.Services.Products.UpdateStock;
 using AutoMapper;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
@@ -121,6 +122,13 @@ namespace App.Services.Products
             if (product is null)
             {
                 return ServiceResult.Fail("Product not found", HttpStatusCode.NotFound);
+            }
+
+            var isProductNameExist = await productRepository.Where(x => x.Name == request.Name && x.Id != product.Id).AnyAsync();
+
+            if (isProductNameExist)
+            {
+                return ServiceResult.Fail("Ürün ismi veritabanında bulunmaktadır.", HttpStatusCode.BadRequest);
             }
 
             product.Name = request.Name;
