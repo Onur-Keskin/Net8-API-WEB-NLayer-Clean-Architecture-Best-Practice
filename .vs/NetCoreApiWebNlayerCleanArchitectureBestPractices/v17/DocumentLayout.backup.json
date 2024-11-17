@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Ders Dok\u00FCmanlar\u0131m\\FatihCakirOgluUdemy\\NetCoreApiWebNlayerCleanArchitectureBestPractices\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4F394134-8BFA-479D-8CBB-5DAA8DB29041}|Services\\App.Services.csproj|d:\\ders dok\u00FCmanlar\u0131m\\fatihcakirogluudemy\\netcoreapiwebnlayercleanarchitecturebestpractices\\services\\products\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F394134-8BFA-479D-8CBB-5DAA8DB29041}|Services\\App.Services.csproj|solutionrelative:services\\products\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4F394134-8BFA-479D-8CBB-5DAA8DB29041}|Services\\App.Services.csproj|d:\\ders dok\u00FCmanlar\u0131m\\fatihcakirogluudemy\\netcoreapiwebnlayercleanarchitecturebestpractices\\services\\products\\update\\updateproductrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F394134-8BFA-479D-8CBB-5DAA8DB29041}|Services\\App.Services.csproj|solutionrelative:services\\products\\update\\updateproductrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4F394134-8BFA-479D-8CBB-5DAA8DB29041}|Services\\App.Services.csproj|d:\\ders dok\u00FCmanlar\u0131m\\fatihcakirogluudemy\\netcoreapiwebnlayercleanarchitecturebestpractices\\services\\products\\create\\createproductrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F394134-8BFA-479D-8CBB-5DAA8DB29041}|Services\\App.Services.csproj|solutionrelative:services\\products\\create\\createproductrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F394134-8BFA-479D-8CBB-5DAA8DB29041}|Services\\App.Services.csproj|d:\\ders dok\u00FCmanlar\u0131m\\fatihcakirogluudemy\\netcoreapiwebnlayercleanarchitecturebestpractices\\services\\products\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F394134-8BFA-479D-8CBB-5DAA8DB29041}|Services\\App.Services.csproj|solutionrelative:services\\products\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,7 +30,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ProductService.cs",
               "DocumentMoniker": "D:\\Ders Dok\u00FCmanlar\u0131m\\FatihCakirOgluUdemy\\NetCoreApiWebNlayerCleanArchitectureBestPractices\\Services\\Products\\ProductService.cs",
               "RelativeDocumentMoniker": "Services\\Products\\ProductService.cs",
@@ -43,7 +43,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "CreateProductRequestValidator.cs",
               "DocumentMoniker": "D:\\Ders Dok\u00FCmanlar\u0131m\\FatihCakirOgluUdemy\\NetCoreApiWebNlayerCleanArchitectureBestPractices\\Services\\Products\\Create\\CreateProductRequestValidator.cs",
               "RelativeDocumentMoniker": "Services\\Products\\Create\\CreateProductRequestValidator.cs",
@@ -56,13 +56,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "UpdateProductRequestValidator.cs",
               "DocumentMoniker": "D:\\Ders Dok\u00FCmanlar\u0131m\\FatihCakirOgluUdemy\\NetCoreApiWebNlayerCleanArchitectureBestPractices\\Services\\Products\\Update\\UpdateProductRequestValidator.cs",
               "RelativeDocumentMoniker": "Services\\Products\\Update\\UpdateProductRequestValidator.cs",
-              "ToolTip": "D:\\Ders Dok\u00FCmanlar\u0131m\\FatihCakirOgluUdemy\\NetCoreApiWebNlayerCleanArchitectureBestPractices\\Services\\Products\\Update\\UpdateProductRequestValidator.cs",
-              "RelativeToolTip": "Services\\Products\\Update\\UpdateProductRequestValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABeAAAAAAAAAA==",
+              "ToolTip": "D:\\Ders Dok\u00FCmanlar\u0131m\\FatihCakirOgluUdemy\\NetCoreApiWebNlayerCleanArchitectureBestPractices\\Services\\Products\\Update\\UpdateProductRequestValidator.cs*",
+              "RelativeToolTip": "Services\\Products\\Update\\UpdateProductRequestValidator.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-17T16:58:15.906Z",
               "EditorCaption": ""
