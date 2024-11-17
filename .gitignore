@@ -1,0 +1,11 @@
+# Visual Studio Geçici Dosyaları
+.vs/
+*.suo
+
+# Build ve Obj Dosyaları
+bin/
+obj/
+
+# Cache Dosyaları
+*.dbtcache.v2
+*.futdcache.v2
