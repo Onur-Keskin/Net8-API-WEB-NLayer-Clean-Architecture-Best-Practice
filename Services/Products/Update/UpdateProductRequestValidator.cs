@@ -1,5 +1,4 @@
-﻿using App.Services.Products.Create;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace App.Services.Products.Update
 {
