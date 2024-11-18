@@ -20,3 +20,13 @@ obj/
 # PDB ve EXE Dosyalarını Hariç Tut
 *.pdb
 *.exe
+
+# Debug klasörlerini hariç tut
+*/obj/Debug/
+
+# source link dosyalarını hariç tut
+*.sourcelink.json
+
+# Diğer istenmeyen dosya ve klasörler
+DocumentLayout.backup.json
+App.API/AssemblyInfo.cs
