@@ -1,6 +1,7 @@
 # Visual Studio dosyaları
 .vs/
 *.suo
+*.suo
 
 # Build dosyaları
 bin/
