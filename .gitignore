@@ -30,3 +30,13 @@ obj/
 # Diğer istenmeyen dosya ve klasörler
 DocumentLayout.backup.json
 App.API/AssemblyInfo.cs
+
+# obj klasörlerini hariç tut
+**/obj/
+
+# NuGet tarafından üretilen dosyaları hariç tut
+*.nuget.g.props
+*.nuget.dgspec.json
+
+# project.assets.json dosyalarını hariç tut
+project.assets.json
