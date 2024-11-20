@@ -1,6 +1,6 @@
 ﻿namespace App.Services.Products
 {
-    public record ProductDto(int Id, string Name, decimal Price, int Stock); //referanslarına göre değil propertylerine göre karşılaştırma yapar
+    public record ProductDto(int Id, string Name, decimal Price, int Stock,int CategoryId); //referanslarına göre değil propertylerine göre karşılaştırma yapar
     //record lar derlendiğinde class' a dönüşüyor
 
     //public int Id { get; init; }
