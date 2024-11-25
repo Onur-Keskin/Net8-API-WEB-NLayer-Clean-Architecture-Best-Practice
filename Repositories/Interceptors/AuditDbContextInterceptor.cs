@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Diagnostics;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace App.Repositories.Interceptors
 {
@@ -30,6 +28,8 @@ namespace App.Repositories.Interceptors
             foreach (var entityEntry in eventData.Context!.ChangeTracker.Entries().ToList())
             {
                 if (entityEntry.Entity is not IAuditEntity auditEntity) continue;
+
+                if (entityEntry.State is not (EntityState.Added or EntityState.Modified)) continue;
 
                 Behaviors[entityEntry.State](eventData.Context,auditEntity);
 
