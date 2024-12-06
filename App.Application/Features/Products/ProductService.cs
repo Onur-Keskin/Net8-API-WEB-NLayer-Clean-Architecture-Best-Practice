@@ -3,7 +3,7 @@ using App.Application.Features.Products.Create;
 using App.Application.Features.Products.Dto;
 using App.Application.Features.Products.Update;
 using App.Application.Features.Products.UpdateStock;
-using App.Repositories.Products;
+using App.Domain.Entities;
 using AutoMapper;
 using FluentValidation;
 using System.Net;

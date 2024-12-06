@@ -1,7 +1,7 @@
 ﻿using App.Application.Features.Products.Create;
 using App.Application.Features.Products.Dto;
 using App.Application.Features.Products.Update;
-using App.Repositories.Products;
+using App.Domain.Entities;
 using AutoMapper;
 
 namespace App.Services.Products

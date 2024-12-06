@@ -1,5 +1,4 @@
 ﻿using App.Domain.Entities.Common;
-using App.Repositories.Products;
 
 namespace App.Domain.Entities;
 

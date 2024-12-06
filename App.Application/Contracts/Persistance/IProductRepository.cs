@@ -1,4 +1,4 @@
-﻿using App.Repositories.Products;
+﻿using App.Domain.Entities;
 
 namespace App.Application.Contracts.Persistance
 {

@@ -1,9 +1,8 @@
-﻿using App.Domain.Entities;
-using App.Domain.Entities.Common;
+﻿using App.Domain.Entities.Common;
 
-namespace App.Repositories.Products
+namespace App.Domain.Entities
 {
-    public class Product : BaseEntity<int>,IAuditEntity
+    public class Product : BaseEntity<int>, IAuditEntity
     {
         public string Name { get; set; } = default!;
         public decimal Price { get; set; }
