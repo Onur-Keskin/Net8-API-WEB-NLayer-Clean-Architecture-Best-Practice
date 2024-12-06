@@ -22,12 +22,6 @@ namespace App.Application.Extensions
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-            //TODO : API Katmanına Taşınacak
-
-            //services.AddScoped(typeof(NotFoundFilter<,>));
-            //services.AddExceptionHandler<CriticalExceptionHandler>();//eklenen sıra önemli
-            //services.AddExceptionHandler<GlobalExceptionHandler>();
-
             return services;
         }
     }
