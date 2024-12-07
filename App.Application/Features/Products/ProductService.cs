@@ -1,4 +1,5 @@
-﻿using App.Application.Contracts.Persistance;
+﻿using App.Application.Contracts.Caching;
+using App.Application.Contracts.Persistance;
 using App.Application.Features.Products.Create;
 using App.Application.Features.Products.Dto;
 using App.Application.Features.Products.Update;
@@ -11,8 +12,10 @@ using System.Net;
 namespace App.Application.Features.Products
 {
     public class ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork,
-        IValidator<CreateProductRequest> createProductRequestValidator, IMapper mapper) : IProductService
+        IValidator<CreateProductRequest> createProductRequestValidator, IMapper mapper, ICacheService cacheService) : IProductService
     {
+        private const string ProductListCacheKey = "ProductListCacheKey";
+
         public async Task<ServiceResult<List<ProductDto>>> GetTopPriceProductAsync(int count)
         {
             var products = await productRepository.GetTopPriceProductAsync(count);
@@ -29,6 +32,15 @@ namespace App.Application.Features.Products
 
         public async Task<ServiceResult<List<ProductDto>>> GetAllListAsync()
         {
+            //cache aside design pattern (önce cache e git sor)
+            // 1. cache
+            // 2. from db
+            // 3. caching data
+
+            var productListAsCached = await cacheService.GetAsync<List<ProductDto>>(ProductListCacheKey);
+
+            if (productListAsCached is not null) return ServiceResult<List<ProductDto>>.Success(productListAsCached);
+
             var products = await productRepository.GetAllAsync();
 
             #region manuel mapping
@@ -36,6 +48,8 @@ namespace App.Application.Features.Products
             #endregion
 
             var productAsDto = mapper.Map<List<ProductDto>>(products);
+
+            await cacheService.AddAsync(ProductListCacheKey,productAsDto,TimeSpan.FromMinutes(1));
 
             return ServiceResult<List<ProductDto>>.Success(productAsDto);
         }
