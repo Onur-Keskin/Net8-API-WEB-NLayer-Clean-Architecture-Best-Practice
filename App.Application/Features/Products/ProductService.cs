@@ -4,7 +4,9 @@ using App.Application.Features.Products.Create;
 using App.Application.Features.Products.Dto;
 using App.Application.Features.Products.Update;
 using App.Application.Features.Products.UpdateStock;
+using App.Application.ServiceBus;
 using App.Domain.Entities;
+using App.Domain.Events;
 using AutoMapper;
 using FluentValidation;
 using System.Net;
@@ -12,7 +14,7 @@ using System.Net;
 namespace App.Application.Features.Products
 {
     public class ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork,
-        IValidator<CreateProductRequest> createProductRequestValidator, IMapper mapper, ICacheService cacheService) : IProductService
+        IValidator<CreateProductRequest> createProductRequestValidator, IMapper mapper, ICacheService cacheService, IServiceBus serviceBus) : IProductService
     {
         private const string ProductListCacheKey = "ProductListCacheKey";
 
@@ -127,6 +129,9 @@ namespace App.Application.Features.Products
 
             await productRepository.AddAsync(product);
             await unitOfWork.SaveChangeAsync();
+
+            await serviceBus.PublishAsync(new ProductAddedEvent(product.Id,product.Name,product.Price,product.Stock));
+
             return ServiceResult<CreateProductResponse>.SuccessAsCreated(new CreateProductResponse(product.Id), $"api/products/{product.Id}");
         }
 
