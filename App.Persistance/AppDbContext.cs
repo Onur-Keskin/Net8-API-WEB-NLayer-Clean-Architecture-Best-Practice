@@ -16,6 +16,12 @@ namespace App.Persistance
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
+            modelBuilder.Entity<Product>()
+                .ToTable("Products", tb => tb.HasTrigger("trg_Products_AllActions"));
+
+            modelBuilder.Entity<Category>()
+                .ToTable("Categories", tb => tb.HasTrigger("trg_Categories_AllActions"));
+
             base.OnModelCreating(modelBuilder);
         }
     }
