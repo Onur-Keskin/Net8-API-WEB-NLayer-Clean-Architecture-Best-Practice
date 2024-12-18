@@ -3,6 +3,7 @@ using App.Domain.Options;
 using App.Persistance.Categories;
 using App.Persistance.Interceptors;
 using App.Persistance.Products;
+using App.Persistance.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,6 +30,7 @@ namespace App.Persistance.Extensions
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             return services;
         }
