@@ -11,6 +11,7 @@ namespace App.Persistance
         }
         public DbSet<Product> Products { get; set; } = default!;
         public DbSet<Category> Categories { get; set; } = default!;
+        public DbSet<User> Users { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,6 +22,9 @@ namespace App.Persistance
 
             modelBuilder.Entity<Category>()
                 .ToTable("Categories", tb => tb.HasTrigger("trg_Categories_AllActions"));
+
+            modelBuilder.Entity<User>()
+                .ToTable("Users", tb => tb.HasTrigger("trg_Users_AllActions"));
 
             base.OnModelCreating(modelBuilder);
         }

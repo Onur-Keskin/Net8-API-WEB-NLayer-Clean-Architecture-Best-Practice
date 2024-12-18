@@ -1,5 +1,7 @@
 ﻿using App.Application.Features.Categories;
+using App.Application.Features.Login;
 using App.Application.Features.Products;
+using App.Application.Features.Register;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +18,10 @@ namespace App.Application.Extensions
             services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);//.Net' in kendi filter yapısını disable etmek
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
-            
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IRegisterService, RegisterService>();
+
             services.AddFluentValidationAutoValidation();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
