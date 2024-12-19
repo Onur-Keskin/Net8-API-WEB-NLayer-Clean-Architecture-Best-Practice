@@ -7,7 +7,7 @@ namespace App.Application.Features.Register
     {
         public RegisterProfileMapping()
         {
-            CreateMap<RegisterRequest, User>();
+            CreateMap<RegisterRequest, Domain.Entities.User>();
         }
     }
 }

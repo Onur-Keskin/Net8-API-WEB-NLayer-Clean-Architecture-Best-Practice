@@ -1,9 +1,7 @@
-﻿using App.Domain.Entities;
-
-namespace App.Application.Features.Login
+﻿namespace App.Application.Features.Login
 {
     public interface ITokenService
     {
-        public string GenerateToken(User user);
+        public string GenerateToken(Domain.Entities.User user);
     }
 }
