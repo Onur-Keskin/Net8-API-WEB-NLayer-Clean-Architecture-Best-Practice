@@ -7,7 +7,7 @@ namespace App.Application.Features.Login
     {
         public LoginProfileMapping()
         {
-            CreateMap<LoginRequest, Domain.Entities.User>();
+            CreateMap<LoginRequest, Domain.Entities.User>().ReverseMap();
         }
     }
 }

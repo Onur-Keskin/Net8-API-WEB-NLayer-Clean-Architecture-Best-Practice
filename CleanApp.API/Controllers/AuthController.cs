@@ -1,6 +1,7 @@
 ﻿using App.Application.Features.Login;
 using App.Application.Features.Register;
 using App.Application.Features.User;
+using App.Application.Features.User.Update;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,14 +28,28 @@ namespace CleanApp.API.Controllers
         [HttpGet("Profile")]
         public async Task<IActionResult> GetUserProfile()
         {
-            var userId = User.Claims.FirstOrDefault()!.Value;
+            var userId = User.Claims.FirstOrDefault()?.Value;
 
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized();
 
-            var userProfile = await userService.GetUserProfileByIdAsync(Convert.ToInt32(userId));
+            var user = await userService.GetUserProfileByIdAsync(Convert.ToInt32(userId));
 
-            return CreateActionResult(userProfile);
+            return CreateActionResult(user);
+        }
+
+        [Authorize]
+        [HttpPut]
+        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserRequest request)
+        {
+            var userId = User.Claims.FirstOrDefault()?.Value;
+            
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized();
+
+            request.Id = Convert.ToInt32(userId);
+
+            return CreateActionResult(await userService.UpdateUserAsync(request));
         }
 
     }

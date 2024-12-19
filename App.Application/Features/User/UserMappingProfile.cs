@@ -1,4 +1,5 @@
 ﻿using App.Application.Features.User.Dto;
+using App.Application.Features.User.Update;
 using AutoMapper;
 
 namespace App.Application.Features.User
@@ -15,7 +16,9 @@ namespace App.Application.Features.User
                     .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(src => src.PasswordHash))
                     .ForMember(dest => dest.Role, opt => opt.MapFrom(src => src.Role)).ReverseMap();
 
-            CreateMap<Domain.Entities.User, UserProfileDto>();
+            CreateMap<Domain.Entities.User, UserProfileDto>().ReverseMap();
+
+            CreateMap<UpdateUserRequest, Domain.Entities.User>().ReverseMap();
         }
     }
 }

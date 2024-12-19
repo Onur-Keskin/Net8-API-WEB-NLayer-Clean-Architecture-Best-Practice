@@ -6,7 +6,7 @@ namespace App.Domain.Entities
     {
         public string Username { get; set; }
         public string PasswordHash { get; set; }
-        public string Role { get; set; }
+        public string? Role { get; set; }
         public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
     }
