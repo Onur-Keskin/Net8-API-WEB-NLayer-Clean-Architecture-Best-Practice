@@ -14,7 +14,7 @@ namespace App.Application.Features.Register
                 return ServiceResult<bool>.Fail("Bu kullanıcı zaten alınmış");
             }
 
-            var user = mapper.Map<User>(registerRequest);
+            var user = mapper.Map<Domain.Entities.User>(registerRequest);
 
             user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(registerRequest.Password);
             user.Role = "User";

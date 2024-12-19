@@ -2,6 +2,7 @@
 using App.Application.Features.Login;
 using App.Application.Features.Products;
 using App.Application.Features.Register;
+using App.Application.Features.User;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,7 @@ namespace App.Application.Extensions
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<ILoginService, LoginService>();
             services.AddScoped<IRegisterService, RegisterService>();
+            services.AddScoped<IUserService, UserService>();
 
             services.AddFluentValidationAutoValidation();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
