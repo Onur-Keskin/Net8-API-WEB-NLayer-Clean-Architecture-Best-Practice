@@ -2,9 +2,7 @@ using App.Application.Extensions;
 using App.Bus;
 using App.Persistance.Extensions;
 using CleanApp.API.Extensions;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,27 +13,26 @@ builder.Services.AddControllersWithFiltersExt().AddSwaggerGenExt().AddExceptionH
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddRepositories(builder.Configuration).AddServices(builder.Configuration).AddBusExt(builder.Configuration);
 
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
-    };
-});
+builder.Services.AddJwtExt(builder.Configuration);
 
+// appsettings.json'dan Serilog yapýlandýrmasýný oku
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration) // appsettings.json'dan yapýlandýrmayý oku
+    .CreateLogger();
+
+builder.Host.UseSerilog((context, services, configuration) =>
+    configuration
+        .ReadFrom.Configuration(context.Configuration)
+        .Enrich.FromLogContext()
+        .WriteTo.Console()
+        .WriteTo.File("D:\\Users\\25200340\\OneDrive - Token Finansal Teknolojiler A.S\\Desktop\\Notlarým\\Deneme\\Logs\\log-.txt", rollingInterval: RollingInterval.Day));
 
 var app = builder.Build();
+
+// HTTP isteklerini logla
+app.UseSerilogRequestLogging();
+
+app.MapGet("/", () => "Hello, .NET 8 with appsettings.json!");
 
 app.UseConfigurePipelineExt();
 

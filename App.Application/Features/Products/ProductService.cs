@@ -9,12 +9,14 @@ using App.Domain.Entities;
 using App.Domain.Events;
 using AutoMapper;
 using FluentValidation;
+using Microsoft.Extensions.Logging;
 using System.Net;
 
 namespace App.Application.Features.Products
 {
     public class ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork,
-        IValidator<CreateProductRequest> createProductRequestValidator, IMapper mapper, ICacheService cacheService, IServiceBus serviceBus) : IProductService
+        IValidator<CreateProductRequest> createProductRequestValidator, IMapper mapper, ICacheService cacheService, 
+        IServiceBus serviceBus, ILogger<ProductService> logger) : IProductService
     {
         private const string ProductListCacheKey = "ProductListCacheKey";
 
@@ -39,11 +41,19 @@ namespace App.Application.Features.Products
             // 2. from db
             // 3. caching data
 
+            logger.LogInformation("GetAllListAsync çağrıldı.");
             var productListAsCached = await cacheService.GetAsync<List<ProductDto>>(ProductListCacheKey);
 
-            if (productListAsCached is not null) return ServiceResult<List<ProductDto>>.Success(productListAsCached);
+            if (productListAsCached is not null)
+            {
+                logger.LogInformation("Cache'den veri bulundu.");
+
+                return ServiceResult<List<ProductDto>>.Success(productListAsCached);
+            }
 
             var products = await productRepository.GetAllAsync();
+
+            logger.LogInformation("{Count} ürün veritabanından getirildi.", products.Count);
 
             #region manuel mapping
             //var productAsDto = products.Select(p => new ProductDto(p.Id,p.Name,p.Price,p.Stock)).ToList(); 
@@ -51,7 +61,10 @@ namespace App.Application.Features.Products
 
             var productAsDto = mapper.Map<List<ProductDto>>(products);
 
+
             await cacheService.AddAsync(ProductListCacheKey,productAsDto,TimeSpan.FromMinutes(1));
+
+            logger.LogInformation("Veriler cache'e başarıyla eklendi.");
 
             return ServiceResult<List<ProductDto>>.Success(productAsDto);
         }
