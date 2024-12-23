@@ -16,7 +16,7 @@ namespace App.Application.Features.Products
 {
     public class ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork,
         IValidator<CreateProductRequest> createProductRequestValidator, IMapper mapper, ICacheService cacheService, 
-        IServiceBus serviceBus, ILogger<ProductService> logger) : IProductService
+        IServiceBus serviceBus,ILogger<ProductService> logger) : IProductService
     {
         private const string ProductListCacheKey = "ProductListCacheKey";
 
@@ -41,7 +41,6 @@ namespace App.Application.Features.Products
             // 2. from db
             // 3. caching data
 
-            logger.LogInformation("GetAllListAsync çağrıldı.");
             var productListAsCached = await cacheService.GetAsync<List<ProductDto>>(ProductListCacheKey);
 
             if (productListAsCached is not null)
@@ -53,8 +52,6 @@ namespace App.Application.Features.Products
 
             var products = await productRepository.GetAllAsync();
 
-            logger.LogInformation("{Count} ürün veritabanından getirildi.", products.Count);
-
             #region manuel mapping
             //var productAsDto = products.Select(p => new ProductDto(p.Id,p.Name,p.Price,p.Stock)).ToList(); 
             #endregion
@@ -62,7 +59,7 @@ namespace App.Application.Features.Products
             var productAsDto = mapper.Map<List<ProductDto>>(products);
 
 
-            await cacheService.AddAsync(ProductListCacheKey,productAsDto,TimeSpan.FromMinutes(1));
+            await cacheService.AddAsync(ProductListCacheKey, productAsDto, TimeSpan.FromMinutes(1));
 
             logger.LogInformation("Veriler cache'e başarıyla eklendi.");
 

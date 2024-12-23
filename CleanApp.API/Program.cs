@@ -2,6 +2,7 @@ using App.Application.Extensions;
 using App.Bus;
 using App.Persistance.Extensions;
 using CleanApp.API.Extensions;
+using CleanApp.API.Middlewares;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,7 +33,9 @@ var app = builder.Build();
 // HTTP isteklerini logla
 app.UseSerilogRequestLogging();
 
-app.MapGet("/", () => "Hello, .NET 8 with appsettings.json!");
+app.UseMiddleware<LoggingMiddleware>();
+
+//app.MapGet("/", () => "Hello, .NET 8 with appsettings.json!");
 
 app.UseConfigurePipelineExt();
 
